@@ -65,90 +65,23 @@ Chatbot for users to describe further emergency cases
 ![https://drive.google.com/file/d/1zx_wnDDcF8BQ7aw4MkvvySLvtvVmehTB/view?usp=drive_link]
 Map for finding nearby hospitals and clinics.
 
-
 ## Additional Documentation
 
 ### For Web Projects with Backend:
 
 #### API Documentation
 
-**Base URL:** ``
-
-##### Endpoints
-
-**GET /api/endpoint**
-- **Description:** [What it does]
-- **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-```json
-{
-  "status": "success",
-  "data": {}
-}
-```
-
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-- **Response:**
-```json
-{
-  "status": "success",
-  "message": "Operation completed"
-}
-
-
-**Input:**
-```json
-{
-  "name": "test",
-  "value": 123
-}
-```
-
-**Command:**
-```bash
-python script.py -v --format json data.json
-```
-
-
-
-
+**Base URL:** `http://127.0.0.1:5500/index.html`
 
 ## AI Tools Used (Optional - For Transparency Bonus)
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot,Gemini, ChatGPT, Claude]
-
-
-
+**Tool Used:**  GitHub, Copilot, Gemini, ChatGPT, Claude
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - Frontend development,Chatbot]
-- [Name 2]: [Specific contributions -Frontend development,OpenStreetMap API ]
-
----
-
-## License
-
-This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
-
-**Common License Options:**
-- MIT License (Permissive, widely used)
-- Apache 2.0 (Permissive with patent grant)
-- GPL v3 (Copyleft, requires derivative works to be open source)
-
----
+- [Aavani S]: [Specific contributions - e.g., Frontend development,chatbot API integration]
+- [Anjana K]: [Specific contributions - e.g., Frontend Development, OpenStreetMap API]
 
 
-Made with ❤️ at TinkerHub
