@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MedQuick-First Aid Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hi">
+    <div class="badge">🇮🇳 India First Aid Reference</div>
+    <h1>Med<span>Quick</span></h1>
+    <h1>First Aid <span>Guide</span></h1>
+    <p>Tap any emergency card for steps, what NOT to do, and who to call.</p>
+  </div>
+</header>
+
+<!-- DISCLAIMER -->
+<div class="disc" role="alert">
+  <span class="di">⚠️</span>
+  <span><strong>Reference guide only.</strong> Always call emergency services first in a life-threatening situation. Not a substitute for professional medical care.</span>
+</div>
+
+<!-- CALL BAR -->
+<div class="callbar">
+  <span>Quick Call:</span>
+  <button class="chip r" onclick="confirmCall('112','National Emergency','🆘')">📞 112-National Emergency</button>
+  <button class="chip a" onclick="confirmCall('108','Ambulance','🚑')">🚑 108-Ambulance</button>
+  <button class="chip b" onclick="confirmCall('100','Police','🚔')">🚔 100-Police</button>
+  <button class="chip"   onclick="confirmCall('101','Fire Brigade','🔥')">🔥 101-Fire Brigade</button>
+  <button class="chip g" onclick="confirmCall('1066','Poison Control','☠️')">☠️ 1066-Poison Control</button>
+</div>
+
+<section class="chatbot">
+    <div class="chatbot-card">
+        <div class="chatbot-header">
+            🤖 AI Emergency ChatBot
+        </div>
+
+        <div class="chatbot-body">
+            <p>Hello! How can I assist you?</p>
+        </div>
+
+        <div class="chatbot-footer">
+            <a href="chat.html" class="chatbot-btn">Open Assistant</a>
+        </div>
+    </div>
+</section>
+
+<!-- GRID -->
+<main>
+  <p class="stitle">Tap an emergency for first aid steps</p>
+
+  <div class="search-container">
+  <h2>Emergency Assistant</h2>
+  
+
+  <div id="resultBox" class="result-box">
+    <!-- JS will display results here -->
+  </div>
+  </div>
+  <div class="grid">
+    <button class="card ck"  onclick="openModal('choking')"  aria-haspopup="dialog"><span class="ce">🫁</span><div class="ct">Choking</div><div class="ch">Blocked airway, can't breathe</div><span class="ca">→</span></button>
+    <button class="card ch2" onclick="openModal('heart')"    aria-haspopup="dialog"><span class="ce">❤️</span><div class="ct">Heart Attack</div><div class="ch">Chest pain, arm pain</div><span class="ca">→</span></button>
+    <button class="card cs"  onclick="openModal('snakebite')" aria-haspopup="dialog"><span class="ce">🐍</span><div class="ct">Snake Bite</div><div class="ch">Venomous or unknown snake</div><span class="ca">→</span></button>
+    <button class="card cel" onclick="openModal('electric')" aria-haspopup="dialog"><span class="ce">⚡</span><div class="ct">Electric Shock</div><div class="ch">Contact with live current</div><span class="ca">→</span></button>
+    <button class="card cb"  onclick="openModal('burns')"    aria-haspopup="dialog"><span class="ce">🔥</span><div class="ct">Burns</div><div class="ch">Heat, chemical or electrical burn</div><span class="ca">→</span></button>
+    <button class="card cd"  onclick="openModal('drowning')" aria-haspopup="dialog"><span class="ce">🌊</span><div class="ct">Drowning</div><div class="ch">Water inhalation, near-drowning</div><span class="ca">→</span></button>
+    <button class="card cf"  onclick="openModal('fracture')" aria-haspopup="dialog"><span class="ce">🦴</span><div class="ct">Fractures</div><div class="ch">Broken or suspected broken bone</div><span class="ca">→</span></button>
+    <button class="card cpp" onclick="openModal('poisoning')" aria-haspopup="dialog"><span class="ce">☠️</span><div class="ct">Poisoning</div><div class="ch">Swallowed, inhaled or skin contact</div><span class="ca">→</span></button>
+    <button class="card cbl" onclick="openModal('bleeding')" aria-haspopup="dialog"><span class="ce">🩹</span><div class="ct">Severe Bleeding</div><div class="ch">Deep wound, heavy blood loss</div><span class="ca">→</span></button>
+    <button class="card cal" onclick="openModal('allergic')" aria-haspopup="dialog"><span class="ce">🤧</span><div class="ct">Allergic Reaction</div><div class="ch">Hives, swelling, difficulty breathing</div><span class="ca">→</span></button>
+    <button class="card ca2" onclick="openAssistant()"       aria-haspopup="dialog"><span class="ce">🆘</span><div class="ct">I Don't Know What To Do</div><div class="ch">Answer 2 quick questions →</div><span class="ca">→</span></button>
+  </div>
+</main>
+
+<!-- NEARBY HOSPITALS -->
+<section class="hosp-section">
+  <p class="stitle">🏥 Find Nearby Hospitals</p>
+  <div style="text-align:center">
+    <button class="hosp-btn" id="hospBtn" onclick="findHospitals()">
+      <span id="hospBtnIcon">📍</span> Use My Location
+    </button>
+    <p id="hospStatus" class="hosp-status"></p>
+  </div>
+  <div id="hospList" class="hosp-list"></div>
+  <div id="hospMap" class="hosp-map"></div>
+</section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<!-- FOOTER -->
+<footer>
+  <strong>First Aid Guide — India</strong><br>
+  Based on Red Cross &amp; WHO guidelines · Reference only · Always seek professional help
+</footer>
+
+<!-- MODAL OVERLAY -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="closeBg(event)">
+  <div class="panel" id="panel">
+    <div class="drag"></div>
+    <div class="ph" id="ph">
+      <span class="ph-e" id="me"></span>
+      <div class="ph-t"><h2 id="modal-title"></h2><p id="ms"></p></div>
+      <button class="xbtn" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="pb" id="pb"></div>
+  </div>
+</div>
+
+<!-- CONFIRM CALL DIALOG -->
+<div class="con-overlay" id="conOverlay">
+  <div class="con-box">
+    <div class="con-icon" id="cIcon"></div>
+    <div class="con-title">Call Emergency Services?</div>
+    <div class="con-num"  id="cNum"></div>
+    <div class="con-name" id="cName"></div>
+    <div class="con-note">⚠️ <strong>Demo mode:</strong> In a real emergency, tapping "Yes, Call" would dial this number directly from your phone.</div>
+    <div class="con-btns">
+      <button class="con-no"  onclick="closeConfirm()">No, Cancel</button>
+      <button class="con-yes" id="cYes">Yes, Call</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+ 
+</body>
+</html>
