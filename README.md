@@ -127,19 +127,15 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** [e.g., GitHub Copilot,Gemini, ChatGPT, Claude]
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+
 
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- [Name 1]: [Specific contributions - Frontend development,Chatbot]
+- [Name 2]: [Specific contributions -Frontend development,OpenStreetMap API ]
 
 ---
 
@@ -153,5 +149,6 @@ This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LI
 - GPL v3 (Copyleft, requires derivative works to be open source)
 
 ---
+
 
 Made with ❤️ at TinkerHub
